@@ -39,6 +39,9 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const session = await getServerSession(authOptions);
+  if (!session) {
+    redirect("/auth/signin");
+  }
   const currentUser = await prisma.user.findUnique({
     where: {
       email: session?.user?.email as string,
