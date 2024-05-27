@@ -8,3 +8,9 @@ declare module "next-auth" {
     } & DefaultSession["user"];
   }
 }
+
+declare module '@ckeditor/ckeditor5-build-classic' {
+  const ClassicEditorBuild: any;
+
+  export = ClassicEditorBuild;
+}
