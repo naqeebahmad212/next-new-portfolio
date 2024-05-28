@@ -6,7 +6,7 @@ import React from "react";
 const page = async () => {
   const blogs = await prisma.post.findMany({});
   return (
-    <div className="w-screen">
+    <div className="bg-dark-1">
       <h1 className="text-primary-500 text-heading2-semibold p-5 lg:py-12 underline">
         Blogs
       </h1>

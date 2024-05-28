@@ -52,8 +52,10 @@ export default async function RootLayout({
   }
   return (
     <main className="bg-dark-1 flex gap-10">
-      <AdminNav />
-      {children}
+      <div>
+        <AdminNav />
+      </div>
+      <div>{children}</div>
     </main>
   );
 }

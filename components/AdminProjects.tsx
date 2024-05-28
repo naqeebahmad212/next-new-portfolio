@@ -9,6 +9,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { cn } from "@/lib/utils";
 import { deleteProject } from "@/utils/db";
 import { Project } from "@prisma/client";
 import { Loader2 } from "lucide-react";
@@ -24,44 +25,46 @@ const AdminProjects = ({ projects }: { projects: Project[] }) => {
         <TableRow className="text-white">
           <TableHead className=" text-white">Title</TableHead>
           <TableHead className="text-white">Image</TableHead>
-          <TableHead className="text-white">Date</TableHead>
+          <TableHead className="text-white max-md:hidden ">Date</TableHead>
           <TableHead className="text-center text-white">Action</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
-        {projects.map((project) => (
-          <TableRow key={project.id}>
-            <TableCell>{project.title.slice(0, 120)}</TableCell>
-            <TableCell>
-              <Image
-                width={50}
-                height={50}
-                src={project.image}
-                alt={project.title}
-              />
-            </TableCell>
-            <TableCell>
-              {new Date(project.createdAt).toLocaleDateString()}
-            </TableCell>
-            <TableCell className="text-center">
-              <button
-                className="p-2 bg-red-500 rounded-md hover:bg-red-700"
-                onClick={() => {
-                  setProjectId(project.id);
-                  startTransition(async () => {
-                    await deleteProject(project.id);
-                  });
-                }}
-              >
-                {pending && projectId === project.id ? (
-                  <Loader2 className="h-4 w-4 animate-spin" />
-                ) : (
-                  "Delete"
-                )}
-              </button>
-            </TableCell>
-          </TableRow>
-        ))}
+        {projects.map((project) => {
+          return (
+            <TableRow key={project.id} className={cn("")}>
+              <TableCell>{project.title.slice(0, 120)}</TableCell>
+              <TableCell>
+                <Image
+                  width={50}
+                  height={50}
+                  src={project.image}
+                  alt={project.title}
+                />
+              </TableCell>
+              <TableCell className="max-md:hidden">
+                {new Date(project.createdAt).toLocaleDateString()}
+              </TableCell>
+              <TableCell className="text-center">
+                <button
+                  className="p-2 bg-red-500 rounded-md hover:bg-red-700"
+                  onClick={() => {
+                    setProjectId(project.id);
+                    startTransition(async () => {
+                      await deleteProject(project.id);
+                    });
+                  }}
+                >
+                  {pending && projectId === project.id ? (
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  ) : (
+                    "Delete"
+                  )}
+                </button>
+              </TableCell>
+            </TableRow>
+          );
+        })}
       </TableBody>
     </Table>
   );

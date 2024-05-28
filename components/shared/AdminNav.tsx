@@ -24,15 +24,14 @@ const bebas = Bebas_Neue({ weight: "400", subsets: ["latin"] });
 const AdminNav = () => {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const [width, setWidth] = useState("w-[50px]");
   return (
     <aside
-      className={cn(
-        " p-5 cursor-pointer sticky top-0 transition-all duration-300 bg-dark-3 h-screen overflow-y-auto overflow-x-hidden flex flex-col z-[9999] ",
-        { "w-[50px]": !open, "!w-[250px]": open }
-      )}
-      onMouseOver={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
-      // onClick={() => setOpen(!open)}
+      onClick={() => {
+        setOpen(!open);
+        setWidth(width === "w-[50px]" ? "w-[240px]" : "w-[50px]");
+      }}
+      className={` ${width} p-5  cursor-pointer sticky top-0  transition-all duration-300 bg-dark-3 h-screen overflow-y-auto overflow-x-hidden flex flex-col z-[9999] `}
     >
       <span
         className={`absolute top-2 right-2 z-[9999999] bg-white rounded-full transition-all duration-200 ${

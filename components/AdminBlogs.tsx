@@ -18,7 +18,7 @@ const AdminBlogs = ({ blogs }: { blogs: Post[] }) => {
   const [pending, startTransition] = useTransition();
   const [activeBlog, setActiveBlog] = useState("");
   return (
-    <Table className="text-white w-full md:px-8 lg:px-20">
+    <Table className="text-white !bg-dark-2  md:px-8 lg:px-20">
       <TableHeader>
         <TableRow className="text-white">
           <TableHead className=" text-white">Title</TableHead>
