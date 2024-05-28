@@ -1,7 +1,12 @@
+import { authOptions } from "@/lib/auth";
+import { getServerSession } from "next-auth";
+import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import React from "react";
+import Logout from "./Logout";
 
-const Footer = () => {
+const Footer = async () => {
+  const session = await getServerSession(authOptions);
   return (
     <div className="footer w-full bg-dark-1  justify-center items-center p-5 md:px-20 md:pt-20 lg:px-[120px]">
       <div className="gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 lg:justify-items-end">
@@ -30,6 +35,7 @@ const Footer = () => {
           <Link href={"#"}>GitHub</Link>
           <br />
           <Link href={"#"}>Privacy</Link> <br />
+          {session && <Logout>Logout</Logout>}
         </div>
 
         <div className="text-gray-300">
