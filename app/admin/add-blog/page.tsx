@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 const AddBlogPage = async () => {
   return (
-    <div className=" m-auto">
+    <div className="m-auto">
       <AddBlogClient />
     </div>
   );
