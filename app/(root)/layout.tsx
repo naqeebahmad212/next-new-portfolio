@@ -8,6 +8,7 @@ import Footer from "@/components/shared/Footer";
 import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth";
 import { prisma } from "@/lib/prisma";
+import { User } from "@prisma/client";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -37,11 +38,15 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const session = await getServerSession(authOptions);
-  const currentUser = await prisma.user.findUnique({
-    where: {
-      email: session?.user?.email as string,
-    },
-  });
+  let currentUser: User | null = null;
+  if (session) {
+    currentUser = await prisma.user.findUnique({
+      where: {
+        email: session?.user?.email as string,
+      },
+    });
+  }
+
   return (
     <main className="bg-dark-1">
       <MobileNav />

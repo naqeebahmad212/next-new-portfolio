@@ -17,6 +17,8 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import logo from "@/public/images/logo.png";
 import { useState } from "react";
+import { signOut } from "next-auth/react";
+import { ArrowBigLeft, ArrowBigRight, LogOut } from "lucide-react";
 
 const bebas = Bebas_Neue({ weight: "400", subsets: ["latin"] });
 const AdminNav = () => {
@@ -25,13 +27,21 @@ const AdminNav = () => {
   return (
     <aside
       className={cn(
-        " p-5 cursor-pointer sticky top-0 transition-all duration-300 bg-dark-3 h-screen overflow-auto flex flex-col z-[9999] ",
+        " p-5 cursor-pointer sticky top-0 transition-all duration-300 bg-dark-3 h-screen overflow-y-auto overflow-x-hidden flex flex-col z-[9999] ",
         { "w-[50px]": !open, "!w-[250px]": open }
       )}
       onMouseOver={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
       // onClick={() => setOpen(!open)}
     >
+      <span
+        className={`absolute top-2 right-2 z-[9999999] bg-white rounded-full transition-all duration-200 ${
+          open ? "rotate-180" : "rotate-0"
+        } `}
+      >
+        <ArrowBigRight />
+      </span>
+
       {adminLinks.map((link) => {
         const isActive = pathname === link.link;
         return (
@@ -53,6 +63,16 @@ const AdminNav = () => {
           </>
         );
       })}
+
+      <button
+        className="text-white hover:bg-primary-500 p-[6px] mt-5 rounded-lg  transition-all duration-500 origin-left absolute bottom-4 w-[80%] text-start mx-auto flex items-center"
+        onClick={async () => {
+          await signOut({ callbackUrl: "/" });
+        }}
+      >
+        {open && "logout"}
+        <LogOut size={16} className={`${open ? "ml-2" : "ml-0"}`} />
+      </button>
     </aside>
   );
 };

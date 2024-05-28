@@ -26,7 +26,7 @@ const SignInPageComp = () => {
       setLoading(false);
     }
     if (res?.ok) {
-      window.location.replace("/admin/dashboard");
+      window.location.replace("/admin/projects");
     }
   };
   return (
