@@ -35,15 +35,6 @@ const MobileNav = () => {
             <MenuIcon />
           </SheetTrigger>
           <SheetContent side="left" className="bg-dark-2">
-            <Link
-              href={"/"}
-              className=" flex cursor-pointer items-center gap-1 px-4"
-            >
-              <h1 className="text-26 text-heading2-semibold text-primary-500 font-ibm-plex-serif font-bold text-black-1">
-                Leye
-              </h1>
-            </Link>
-
             <div className="mobilenav-sheet">
               <SheetClose asChild>
                 <nav className="flex h-full flex-col gap-6 pt-16 text-white">
