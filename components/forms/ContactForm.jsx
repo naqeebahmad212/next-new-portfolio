@@ -66,7 +66,7 @@ export const ContactForm = () => {
           <input
             type="hidden"
             name="_next"
-            value="https://leye-the-developer.vercel.app/thank-you"
+            value="https://next-new-portfolio-three.vercel.app/thank-you"
           />
           <div className="Contact_NameEmail w-full flex gap-5 justify-center items-center flex-col md:flex-row mb-5">
             <div className="w-full">
