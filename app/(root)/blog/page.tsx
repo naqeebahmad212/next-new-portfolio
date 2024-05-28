@@ -13,7 +13,7 @@ const Blog = async () => {
     <div>
       <BlogHero />
 
-      <div className="blogs grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10 p-20">
+      <div className="blogs grid justify-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10 p-3 xs:p-6 lg:p-20">
         {blogs.map((blog) => (
           <BlogCard
             key={blog.id}
