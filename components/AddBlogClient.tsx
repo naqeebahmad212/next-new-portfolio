@@ -86,7 +86,7 @@ const AddBlogClient = () => {
     }
   };
   return (
-    <div className="p-5 xs:p-[20px] md:p-20 lg:p-30 bg-dark-1">
+    <div className="p-5 xs:p-[20px] md:p-20 lg:p-30 bg-dark-1 w-full ">
       <div>
         {imagePreview && (
           <Image

@@ -51,11 +51,11 @@ export default async function RootLayout({
     redirect("/auth/signin");
   }
   return (
-    <main className="bg-dark-1 flex gap-10">
+    <main className="bg-dark-1 flex gap-4">
       <div>
         <AdminNav />
       </div>
-      <div>{children}</div>
+      <div className="w-[75%]">{children}</div>
     </main>
   );
 }

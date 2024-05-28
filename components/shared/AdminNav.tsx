@@ -31,7 +31,7 @@ const AdminNav = () => {
         setOpen(!open);
         setWidth(width === "w-[50px]" ? "w-[240px]" : "w-[50px]");
       }}
-      className={` ${width} p-5  cursor-pointer sticky top-0  transition-all duration-300 bg-dark-3 h-screen overflow-y-auto overflow-x-hidden flex flex-col z-[9999] `}
+      className={` ${width} p-5 cursor-pointer sticky top-0  transition-all duration-300 bg-dark-3 h-screen overflow-y-auto overflow-x-hidden flex flex-col z-[9999] `}
     >
       <span
         className={`absolute top-2 right-2 z-[9999999] bg-white rounded-full transition-all duration-200 ${

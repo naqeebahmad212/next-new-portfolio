@@ -57,7 +57,7 @@ const NewProject = () => {
   };
 
   return (
-    <div className=" min-h-screen flex items-center justify-center bg-dark-1">
+    <div className=" min-h-screen w-full flex items-center justify-center bg-dark-1">
       <form action={clientAction} className="w-full lg:w-[70%]">
         <div className="form-group my-2">
           <label htmlFor="title" className="text-gray-300 mb-1">
@@ -67,7 +67,7 @@ const NewProject = () => {
             type="text"
             name="title"
             placeholder="Type here..."
-            className="input  w-full p-3 rounded-xl"
+            className="input w-full p-3 rounded-xl"
             required
           />
         </div>
