@@ -46,7 +46,7 @@ const ProjectDeialtPage = async ({ params: { id } }: PostdetailsPageProps) => {
   return (
     <div className="w-full mt-[100px]">
       <div className="w-[83%] mx-auto">
-        <div className="project-image p-6 lg:h-[470px] lg:w-[70%]">
+        <div className="project-image p-0 md:p-6 lg:h-[470px] lg:w-[70%]">
           {project && (
             <Image
               src={project.image}
@@ -58,13 +58,13 @@ const ProjectDeialtPage = async ({ params: { id } }: PostdetailsPageProps) => {
           )}
         </div>
 
-        <div className="content lg:w-[70%] p-6">
-          <h1 className="text-2xl font-bold text-gray-300 mb-6 text-heading3-bold">
+        <div className="content lg:w-[70%] p-0 md:p-6">
+          <h1 className="text-2xl font-bold text-gray-300 my-6 text-heading3-bold">
             {project?.title}
           </h1>
           {project && (
             <div
-              className="text-gray-300"
+              className="text-gray-300 text-justify"
               dangerouslySetInnerHTML={{ __html: project?.body }}
             />
           )}
